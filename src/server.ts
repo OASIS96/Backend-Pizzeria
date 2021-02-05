@@ -1,18 +1,23 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
+import cors from 'cors';
 import path from "path";
 import mainRouter from './routes/main.routes';
+import sliderRouter from './routes/slider.routes';
 import { variables } from "./environments/variables";
 
 const app = express();
 
 app.use(morgan("dev"));
+app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(helmet());
 app.use(express.json());
 
-app.use("/",mainRouter);
+app.use("/api",sliderRouter)
+
+app.use("/api",mainRouter);
 
 app.listen(variables.PORT, () => {
   console.log(`Serve on port ${variables.PORT}`);
