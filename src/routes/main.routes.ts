@@ -7,4 +7,4 @@ router.get("/**", (req: Request, res: Response) => {
   res.sendFile(path.resolve(__dirname, "../public/index.html"));
 });
 
-export default router
+export default router;

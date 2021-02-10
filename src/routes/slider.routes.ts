@@ -5,5 +5,4 @@ const router = Router();
 
 router.get("/slide-pizzas", GetPizzasSlider);
 
-
 export default router;
