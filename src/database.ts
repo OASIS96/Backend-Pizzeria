@@ -1,4 +1,5 @@
 import Mongoose from "mongoose";
+import { variables } from "./environments/variables";
 
 const options: Mongoose.ConnectOptions = {
   useNewUrlParser: true,
@@ -6,7 +7,7 @@ const options: Mongoose.ConnectOptions = {
 };
 
 const Database = async () => {
-  await Mongoose.connect(`mongodb://localhost:27017/Pizzeria`, options, () => {
+  await Mongoose.connect(variables.DATABASE_URI as string, options, () => {
     console.log("Database is connected");
   });
 };

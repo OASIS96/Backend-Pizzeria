@@ -10,8 +10,9 @@ const getToken = (user: IUser) => {
 };
 
 export const loginUser = async (req: Request, res: Response) => {
-  const { email, password } = req.body;
-  const userDB = (await UserSchema.findOne({ email })) as IUser;
+  const { username, password } = req.body;
+  console.log(req.body)
+  const userDB = (await UserSchema.findOne({ username })) as IUser;
   if (!userDB) {
     return res.status(200).json({
       status: "EL usuario no existe",
